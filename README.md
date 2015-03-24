@@ -1,4 +1,4 @@
-# Laravel 5 Package Development Boilerplate
+# Laravel 5's Package Boilerplate
 
 A custom made Laravel5 boilerplate made for package development which contains publish code for :
 
