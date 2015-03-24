@@ -1,6 +1,6 @@
 # Laravel 5's Package Boilerplate
 
-A custom made Laravel5 boilerplate made for package development which contains publish code for :
+A custom made Laravel5 package boilerplate made for package development purpose, which contains publish code for :
 
 - Config
 - View
