@@ -12,6 +12,7 @@ A custom made Laravel5 boilerplate made for package development which contains p
 ## Usage
 
 1- Clone this repository into your package development folder.
+
 2- Change src/Package to your package name. Customize the package's composer.json autoload section to reflect the previous change.
 
 3- Customize **Package/PackageServiceProvider** with the correct namespace and the name of your package, and replace the $packageNamespace attribute.
