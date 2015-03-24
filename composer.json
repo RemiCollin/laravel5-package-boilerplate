@@ -1,0 +1,25 @@
+{
+    "name": "vendor/package",
+    "description": "",
+    "keywords": [],
+    "homepage": "",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+       "psr-4": {
+         "Vendor\\Package\\": "src/Package"
+        }
+    },
+    "license": "MIT"
+    
+}
