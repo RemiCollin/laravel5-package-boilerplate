@@ -23,7 +23,7 @@ A custom made Laravel5 package boilerplate made for package development purpose,
 
 ```
 
-4- Add the package in your application's **composer.son** autoload section to make it available in your application. 
+4- Add the package in your application's **composer.json** autoload section to make it available in your application. 
 
 ```
 
