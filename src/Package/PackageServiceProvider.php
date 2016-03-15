@@ -44,6 +44,11 @@ class PackageServiceProvider extends ServiceProvider {
             __DIR__.'/../database/seeds/' => base_path('/database/seeds')
         ], 'seeds');
 
+        // Publish your config
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
+        ], 'config');
+
         //
     }
 
@@ -54,9 +59,7 @@ class PackageServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->publishes([
-            __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
-        ]);
+        $this->mergeConfigFrom( __DIR__.'/../config/config.php', $this->packageName);
 
         //
     }
