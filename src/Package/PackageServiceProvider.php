@@ -1,11 +1,14 @@
-<?php namespace Vendor\Package;
+<?php 
+
+namespace Vendor\Package;
 
 use Illuminate\Support\ServiceProvider;
+use Vendor\Package\Commands\FooCommand;
 
 /**
- * A Laravel 5's package template.
+ * A Laravel 5.5 package boilerplate
  *
- * @author: Rémi Collin 
+ * @author: Rémi Collin (remi@code16.fr)
  */
 class PackageServiceProvider extends ServiceProvider {
 
@@ -14,8 +17,19 @@ class PackageServiceProvider extends ServiceProvider {
      * your package namespace.
      *
      * --> Replace with your package name <--
+     * 
+     * @var  string
      */
     protected $packageName = 'package';
+
+    /**
+     * A list of artisan commands for your package
+     * 
+     * @var array
+     */
+    protected $commands = [
+        FooCommand::class;
+    ];
 
     /**
      * Bootstrap the application services.
@@ -24,21 +38,25 @@ class PackageServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        include __DIR__.'/../routes.php';
+        $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
 
         // Register Views from your package
         $this->loadViewsFrom(__DIR__.'/../views', $this->packageName);
+
+        // Regiter migrations
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        // Register translations
+        $this->loadTranslationsFrom(__DIR__.'/../lang', $this->packageName);
+        $this->publishes([
+            __DIR__.'/../lang' => resource_path('lang/vendor/'. $this->packageName),
+        ]);
 
         // Register your asset's publisher
         $this->publishes([
             __DIR__.'/../assets' => public_path('vendor/'.$this->packageName),
         ], 'public');
 
-        // Register your migration's publisher
-        $this->publishes([
-            __DIR__.'/../database/migrations/' => base_path('/database/migrations')
-        ], 'migrations');
-        
         // Publish your seed's publisher
         $this->publishes([
             __DIR__.'/../database/seeds/' => base_path('/database/seeds')
@@ -49,7 +67,9 @@ class PackageServiceProvider extends ServiceProvider {
             __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
         ], 'config');
 
-        //
+        if ($this->app->runningInConsole()) {
+            $this->commands($this->commands);
+        }
     }
 
     /**
@@ -59,9 +79,10 @@ class PackageServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->mergeConfigFrom( __DIR__.'/../config/config.php', $this->packageName);
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', $this->packageName
+        );
 
-        //
     }
 
 }

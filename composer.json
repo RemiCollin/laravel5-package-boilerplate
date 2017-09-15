@@ -10,14 +10,27 @@
         }
     ],
     "require": {
-        "illuminate/support": "~5.0"
+        "illuminate/support": "~5.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.5"
+        "phpunit/phpunit": "~5.7",
+        "orchestra/testbench": "~3.0"
     },
     "autoload": {
        "psr-4": {
-         "Vendor\\Package\\": "src/Package"
+            "Vendor\\Package\\": "src/Package"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vendor\\Package\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vendor\\Package\\ServiceProvider"
+            ]
         }
     },
     "license": "MIT"
