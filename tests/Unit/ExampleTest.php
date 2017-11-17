@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Tests\PackageTestCase;
+use Vendor\Package\Tests\PackageTestCase;
 
 class ExampleTest extends PackageTestCase
 {
