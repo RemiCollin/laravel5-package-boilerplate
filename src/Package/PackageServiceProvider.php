@@ -28,7 +28,7 @@ class PackageServiceProvider extends ServiceProvider {
      * @var array
      */
     protected $commands = [
-        FooCommand::class;
+        FooCommand::class,
     ];
 
     /**
