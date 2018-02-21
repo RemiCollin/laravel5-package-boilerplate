@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Vendor\Packages\Tests\Feature;
 
 use Vendor\Package\Tests\PackageTestCase;
 

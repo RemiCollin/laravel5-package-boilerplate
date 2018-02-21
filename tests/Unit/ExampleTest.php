@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Vendor\Packages\Tests\Unit;
 
 use Vendor\Package\Tests\PackageTestCase;
 
